@@ -1,8 +1,11 @@
 #include "menu_vehiculos.h"
 #include "entrada.h"
 #include "../logica/vehiculos.h"
+#include "../logica/ordenes.h"
+#include "../logica/utilidades.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -11,17 +14,14 @@ using namespace std;
 void menuVehiculos(SistemaTaller* s) {
     int opcion = -1;
     do {
-        cout << "\n===== MENU VEHICULOS =====\n";
+        cout << "\n--- MENU VEHICULOS ---\n";
         cout << "1. Registrar vehiculo\n";
         cout << "2. Buscar vehiculo\n";
         cout << "3. Actualizar vehiculo\n";
         cout << "4. Eliminar vehiculo\n";
         cout << "5. Listar vehiculos\n";
         cout << "0. Volver\n";
-        cout << "Seleccione una opcion: ";
-        
-        cin >> opcion;
-        limpiarBuffer(); // Suponiendo que existe en entrada.h
+        opcion = leerOpcion("Seleccione una opcion", 0, 5);
 
         switch (opcion) {
             case 1:
@@ -42,50 +42,35 @@ void menuVehiculos(SistemaTaller* s) {
             case 0:
                 cout << "Regresando al menu principal...\n";
                 break;
-            default:
-                cout << "Opcion invalida. Intente de nuevo.\n";
         }
-    } while (opcion != 0);
+    } while (opcion != 0 && opcion != -1); // -1: se acabo la entrada
 }
 
 // Pide los datos del vehiculo, pide confirmacion y llama a agregarVehiculo
 // Si en cualquier dato escriben CANCELAR, se sale sin guardar (caso de uso 8)
 void menuRegistrarVehiculo(SistemaTaller* s) {
     cout << "\n--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---\n";
-    
-    string placa, marca, modelo, propietario;
-    int anio;
 
-    cout << "Placa: ";
-    placa = leerCadena();
-    if (placa == "CANCELAR") return;
+    Vehiculo datos;
+    if (!leerTexto("Placa: ", datos.placa, 10)) return;
+    if (!leerTexto("Marca: ", datos.marca, 50)) return;
+    if (!leerTexto("Modelo: ", datos.modelo, 50)) return;
+    if (!leerEntero("Anio: ", &datos.anio)) return;
+    if (!leerEntero("Kilometraje: ", &datos.kilometraje)) return;
+    if (!leerTexto("Propietario: ", datos.nombrePropietario, 100)) return;
+    if (!leerTexto("Cedula del propietario: ", datos.cedulaPropietario, 20)) return;
+    if (!leerTexto("Telefono del propietario: ", datos.telefonoPropietario, 20)) return;
 
-    cout << "Marca: ";
-    marca = leerCadena();
-    if (marca == "CANCELAR") return;
-
-    cout << "Modelo: ";
-    modelo = leerCadena();
-    if (modelo == "CANCELAR") return;
-
-    cout << "Anio: ";
-    anio = leerEntero();
-    if (anio == -1 /* o valor cancelado */) return;
-
-    cout << "Propietario: ";
-    propietario = leerCadena();
-    if (propietario == "CANCELAR") return;
-
-    if (!confirmar("¿Desea guardar este vehiculo? (s/n): ")) {
+    if (!confirmar("Desea guardar este vehiculo? (s/n): ")) {
         cout << "Operacion cancelada por el usuario.\n";
         return;
     }
 
-    Vehiculo* nuevo = agregarVehiculo(s, placa, marca, modelo, anio, propietario);
+    Vehiculo* nuevo = agregarVehiculo(s, datos);
     if (nuevo == nullptr) {
-        cout << "ERROR: La placa " << placa << " ya esta registrada o hubo un fallo al guardar.\n";
+        cout << "ERROR: La placa " << datos.placa << " ya esta registrada o algun dato no es valido.\n";
     } else {
-        cout << "Vehiculo registrado exitosamente.\n";
+        cout << "Vehiculo registrado exitosamente con ID " << nuevo->id << ".\n";
     }
 }
 
@@ -95,31 +80,29 @@ void menuBuscarVehiculo(SistemaTaller* s) {
     cout << "\n--- BUSCAR VEHICULO ---\n";
     cout << "1. Buscar por placa exacta\n";
     cout << "2. Buscar por propietario (parcial)\n";
-    cout << "Seleccione opcion: ";
-    
-    int op = leerEntero();
+    int op = leerOpcion("Seleccione opcion", 1, 2);
+
     if (op == 1) {
-        cout << "Ingrese placa: ";
-        string placa = leerCadena();
-        Vehiculo* v = buscarVehiculoPorPlaca(s, placa); // Asumiendo esta funcion
+        char placa[10];
+        if (!leerTexto("Ingrese placa: ", placa, 10)) return;
+        convertirAMayusculas(placa); // las placas se guardan en mayusculas
+        Vehiculo* v = buscarVehiculoPorPlaca(s, placa);
         if (v != nullptr) {
             mostrarVehiculo(v);
         } else {
             cout << "No se encontro ningun vehiculo con la placa: " << placa << "\n";
         }
     } else if (op == 2) {
-        cout << "Ingrese nombre o parte del propietario: ";
-        string prop = leerCadena();
+        char prop[100];
+        if (!leerTexto("Ingrese nombre o parte del propietario: ", prop, 100)) return;
         int cantidad = 0;
-        Vehiculo** lista = buscarVehiculosPorPropietario(s, prop, cantidad);
+        Vehiculo** lista = buscarVehiculosPorPropietario(s, prop, &cantidad);
         if (cantidad > 0) {
             mostrarListaVehiculos(lista, cantidad);
         } else {
             cout << "No se encontraron vehiculos para ese propietario.\n";
         }
         delete[] lista;
-    } else {
-        cout << "Opcion invalida.\n";
     }
 }
 
@@ -127,10 +110,10 @@ void menuBuscarVehiculo(SistemaTaller* s) {
 // y llama a actualizarVehiculo
 void menuActualizarVehiculo(SistemaTaller* s) {
     cout << "\n--- ACTUALIZAR VEHICULO ---\n";
-    cout << "Ingrese ID o Placa del vehiculo a actualizar: "; // Ajustar segun tu modelo (ID o Placa)
-    string idVehiculo = leerCadena();
+    int id;
+    if (!leerEntero("Ingrese el ID del vehiculo a actualizar: ", &id)) return;
 
-    Vehiculo* actual = buscarVehiculoPorPlaca(s, idVehiculo); // o por ID
+    Vehiculo* actual = buscarVehiculoPorID(s, id);
     if (actual == nullptr) {
         cout << "Vehiculo no encontrado.\n";
         return;
@@ -140,31 +123,24 @@ void menuActualizarVehiculo(SistemaTaller* s) {
     mostrarVehiculo(actual);
 
     cout << "\n--- Ingrese nuevos datos (o CANCELAR para salir) ---\n";
-    cout << "Nueva Marca: ";
-    string marca = leerCadena();
-    if (marca == "CANCELAR") return;
+    Vehiculo datos;
+    if (!leerTexto("Nueva Marca: ", datos.marca, 50)) return;
+    if (!leerTexto("Nuevo Modelo: ", datos.modelo, 50)) return;
+    if (!leerEntero("Nuevo Anio: ", &datos.anio)) return;
+    if (!leerTexto("Nuevo Propietario: ", datos.nombrePropietario, 100)) return;
+    if (!leerTexto("Nueva Cedula del propietario: ", datos.cedulaPropietario, 20)) return;
+    if (!leerTexto("Nuevo Telefono del propietario: ", datos.telefonoPropietario, 20)) return;
 
-    cout << "Nuevo Modelo: ";
-    string modelo = leerCadena();
-    if (modelo == "CANCELAR") return;
-
-    cout << "Nuevo Anio: ";
-    int anio = leerEntero();
-
-    cout << "Nuevo Propietario: ";
-    string propietario = leerCadena();
-    if (propietario == "CANCELAR") return;
-
-    if (!confirmar("¿Desea guardar los cambios? (s/n): ")) {
+    if (!confirmar("Desea guardar los cambios? (s/n): ")) {
         cout << "Actualizacion cancelada.\n";
         return;
     }
 
-    bool exito = actualizarVehiculo(s, idVehiculo, marca, modelo, anio, propietario);
+    bool exito = actualizarVehiculo(s, id, datos);
     if (exito) {
         cout << "Vehiculo actualizado correctamente.\n";
     } else {
-        cout << "Error al actualizar el vehiculo.\n";
+        cout << "Error: algun dato no es valido (anio entre 1950 y 2027, cedula valida).\n";
     }
 }
 
@@ -172,28 +148,30 @@ void menuActualizarVehiculo(SistemaTaller* s) {
 // Si tiene ordenes, el mensaje debe decir cuantas (contarOrdenesDeVehiculo)
 void menuEliminarVehiculo(SistemaTaller* s) {
     cout << "\n--- ELIMINAR VEHICULO ---\n";
-    cout << "Ingrese placa o ID del vehiculo a eliminar: ";
-    string idVehiculo = leerCadena();
+    int id;
+    if (!leerEntero("Ingrese el ID del vehiculo a eliminar: ", &id)) return;
 
-    Vehiculo* v = buscarVehiculoPorPlaca(s, idVehiculo);
+    // eliminarVehiculo devuelve bool, asi que primero se revisa por que podria fallar
+    Vehiculo* v = buscarVehiculoPorID(s, id);
     if (v == nullptr) {
         cout << "Vehiculo no encontrado.\n";
         return;
     }
 
-    int ordenes = contarOrdenesDeVehiculo(s, idVehiculo);
+    int ordenes = contarOrdenesDeVehiculo(s, id);
     if (ordenes > 0) {
-        cout << "ADVERTENCIA: Este vehiculo tiene " << ordenes << " orden(es) asociada(s).\n";
+        cout << "No se puede eliminar: este vehiculo tiene " << ordenes << " orden(es) asociada(s).\n";
+        return;
     }
 
     mostrarVehiculo(v);
 
-    if (!confirmar("¿Esta seguro que desea eliminar este vehiculo? (s/n): ")) {
+    if (!confirmar("Esta seguro que desea eliminar este vehiculo? (s/n): ")) {
         cout << "Eliminacion cancelada.\n";
         return;
     }
 
-    bool eliminado = eliminarVehiculo(s, idVehiculo);
+    bool eliminado = eliminarVehiculo(s, id);
     if (eliminado) {
         cout << "Vehiculo eliminado con exito.\n";
     } else {
@@ -205,14 +183,14 @@ void menuEliminarVehiculo(SistemaTaller* s) {
 void menuListarVehiculos(SistemaTaller* s) {
     cout << "\n--- LISTA DE VEHICULOS ---\n";
     int cantidad = 0;
-    Vehiculo** lista = listarVehiculos(s, cantidad);
-    
+    Vehiculo** lista = listarVehiculos(s, &cantidad);
+
     if (cantidad > 0) {
         mostrarListaVehiculos(lista, cantidad);
     } else {
         cout << "No hay vehiculos registrados en el sistema.\n";
     }
-    
+
     delete[] lista;
 }
 
@@ -220,11 +198,16 @@ void menuListarVehiculos(SistemaTaller* s) {
 void mostrarVehiculo(Vehiculo* vehiculo) {
     if (vehiculo == nullptr) return;
     cout << "----------------------------------------\n";
-    cout << "Placa:       " << vehiculo->getPlaca() << "\n"; // Ajustar a campos/getters reales
-    cout << "Marca:       " << vehiculo->getMarca() << "\n";
-    cout << "Modelo:      " << vehiculo->getModelo() << "\n";
-    cout << "Anio:        " << vehiculo->getAnio() << "\n";
-    cout << "Propietario: " << vehiculo->getPropietario() << "\n";
+    cout << "ID: " << vehiculo->id << "\n";
+    cout << "Placa: " << vehiculo->placa << "\n";
+    cout << "Marca: " << vehiculo->marca << "\n";
+    cout << "Modelo: " << vehiculo->modelo << "\n";
+    cout << "Anio: " << vehiculo->anio << "\n";
+    cout << "Kilometraje: " << vehiculo->kilometraje << "\n";
+    cout << "Propietario: " << vehiculo->nombrePropietario << "\n";
+    cout << "Cedula: " << vehiculo->cedulaPropietario << "\n";
+    cout << "Telefono: " << vehiculo->telefonoPropietario << "\n";
+    cout << "Registrado: " << vehiculo->fechaRegistro << "\n";
     cout << "----------------------------------------\n";
 }
 
@@ -232,22 +215,27 @@ void mostrarVehiculo(Vehiculo* vehiculo) {
 void mostrarListaVehiculos(Vehiculo** vehiculos, int cantidad) {
     if (vehiculos == nullptr || cantidad <= 0) return;
 
-    cout << left 
-         << setw(12) << "PLACA" 
-         << setw(15) << "MARCA" 
-         << setw(15) << "MODELO" 
-         << setw(8)  << "ANIO" 
+    cout << left
+         << setw(5) << "ID"
+         << setw(10) << "PLACA"
+         << setw(15) << "MARCA"
+         << setw(15) << "MODELO"
+         << setw(8) << "ANIO"
+         << setw(10) << "KM"
          << setw(20) << "PROPIETARIO" << "\n";
-    cout << string(70, '-') << "\n";
+    cout << string(83, '-') << "\n";
 
     for (int i = 0; i < cantidad; i++) {
         if (vehiculos[i] != nullptr) {
-            cout << left 
-                 << setw(12) << vehiculos[i]->getPlaca()
-                 << setw(15) << vehiculos[i]->getMarca()
-                 << setw(15) << vehiculos[i]->getModelo()
-                 << setw(8)  << vehiculos[i]->getAnio()
-                 << setw(20) << vehiculos[i]->getPropietario() << "\n";
+            cout << left
+                 << setw(5) << vehiculos[i]->id
+                 << setw(10) << vehiculos[i]->placa
+                 << setw(15) << vehiculos[i]->marca
+                 << setw(15) << vehiculos[i]->modelo
+                 << setw(8) << vehiculos[i]->anio
+                 << setw(10) << vehiculos[i]->kilometraje
+                 << setw(20) << vehiculos[i]->nombrePropietario << "\n";
         }
     }
+    cout << "Total de vehiculos: " << cantidad << "\n";
 }
