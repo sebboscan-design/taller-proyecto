@@ -35,14 +35,6 @@ bool leerEntero(const char* mensaje, int* destino) {
 
 // Igual que leerEntero, pero para numeros con decimales
 bool leerFlotante(const char* mensaje, float* destino) {
-    // TODO: escribir la funcion
-    return false;
-}
-
-// Lee una linea de texto. Si es CANCELAR devuelve false
-// std::string solo se usa aqui para leer; despues se copia al char[]
-// con copiarTexto (de utilidades.h)
-bool leerTexto(const char* mensaje, char* destino, int tamanoDestino) {
    string linea;
     while (true) {
         cout << mensaje;
@@ -66,6 +58,7 @@ bool leerTexto(const char* mensaje, char* destino, int tamanoDestino) {
     }
     return false;
 }
+
 // Lee una linea de texto. Si es CANCELAR devuelve false
 // std::string solo se usa aqui para leer; despues se copia al char[]
 // con copiarTexto (de utilidades.h)
@@ -106,16 +99,14 @@ bool confirmar(const char* mensaje) {
 // Pide un numero y lo repite hasta que este entre minimo y maximo
 int leerOpcion(const char* mensaje, int minimo, int maximo) {
    int opcion;
-    string mensajeRango = string(mensaje) + " (" + toat(minimo) + "-" + to_string(maximo) + "): "; // Opcional por estetica
+    string mensajeRango = string(mensaje) + " (" + to_string(minimo) + "-" + to_string(maximo) + "): ";
     
     // Reutiliza leerEntero para evitar duplicar lógica de validación
-    while (leerEntero(mensaje, &opcion)) {
+    while (leerEntero(mensajeRango.c_str(), &opcion)) {
         if (opcion >= minimo && opcion <= maximo) {
             return opcion;
         }
         cout << "Error: La opcion debe estar entre " << minimo << " y " << maximo << ".\n";
     }
     return minimo - 1; // Retorna un valor fuera de rango si se cancela o termina el archivo
-}
-    return 0;
 }
