@@ -17,8 +17,7 @@ void menuRepuestos(SistemaTaller* s) {
         cout << "5. Eliminar repuesto" << endl;
         cout << "6. Listar repuestos" << endl;
         cout << "0. Volver" << endl;
-        cout << "Seleccione una opcion: ";
-        cin >> opcion;
+        opcion = leerOpcion("Seleccione una opcion", 0, 6);
 
         switch (opcion) {
             case 1:
@@ -42,41 +41,32 @@ void menuRepuestos(SistemaTaller* s) {
             case 0:
                 cout << "Volviendo..." << endl;
                 break;
-            default:
-                cout << "Opcion invalida. Intente de nuevo." << endl;
         }
-    } while (opcion != 0);
+    } while (opcion != 0 && opcion != -1); // -1: se acabo la entrada
 }
 
 // Pide codigo, nombre, marca, precio, stock y stock minimo, pide confirmacion
 // y llama a registrarRepuesto. Mostrar el mensaje segun el Resultado
 void menuRegistrarRepuesto(SistemaTaller* s) {
-    string codigo, nombre, marca;
-    double precio;
-    int stock, stockMinimo;
+    Repuesto datos;
 
     cout << "\n--- REGISTRAR REPUESTO ---" << endl;
-    cout << "Codigo: ";
-    cin >> codigo;
-    cout << "Nombre: ";
-    cin >> nombre;
-    cout << "Marca: ";
-    cin >> marca;
-    cout << "Precio: ";
-    cin >> precio;
-    cout << "Stock: ";
-    cin >> stock;
-    cout << "Stock minimo: ";
-    cin >> stockMinimo;
+    cout << "(Escriba CANCELAR en cualquier momento para salir)" << endl;
+    if (!leerTexto("Codigo: ", datos.codigo, 20)) return;
+    if (!leerTexto("Nombre: ", datos.nombre, 100)) return;
+    if (!leerTexto("Marca: ", datos.marca, 50)) return;
+    if (!leerFlotante("Precio: ", &datos.precio)) return;
+    if (!leerEntero("Stock: ", &datos.stock)) return;
+    if (!leerEntero("Stock minimo: ", &datos.stockMinimo)) return;
 
-    char confirma;
-    cout << "Confirma el registro? (s/n): ";
-    cin >> confirma;
-
-    if (confirma == 's' || confirma == 'S') {
-        Resultado res = s->registrarRepuesto(codigo, nombre, marca, precio, stock, stockMinimo);
-        if (res == EXITO) {
+    if (confirmar("Confirma el registro? (s/n): ")) {
+        Resultado res = registrarRepuesto(s, datos);
+        if (res == OK) {
             cout << "Repuesto registrado exitosamente." << endl;
+        } else if (res == ERROR_DUPLICADO) {
+            cout << "Error: Ya existe un repuesto con ese codigo." << endl;
+        } else if (res == ERROR_DATO_INVALIDO) {
+            cout << "Error: Revise los datos (precio mayor a 0, stock no negativo)." << endl;
         } else {
             cout << "Error al registrar el repuesto." << endl;
         }
@@ -88,13 +78,12 @@ void menuRegistrarRepuesto(SistemaTaller* s) {
 // Busca por codigo o por parte del nombre con buscarRepuestos
 // Al final, delete[] del arreglo
 void menuBuscarRepuesto(SistemaTaller* s) {
-    string termino;
+    char termino[100];
     cout << "\n--- BUSCAR REPUESTO ---" << endl;
-    cout << "Ingrese codigo o nombre: ";
-    cin >> termino;
+    if (!leerTexto("Ingrese codigo o nombre: ", termino, 100)) return;
 
     int cantidad = 0;
-    Repuesto** encontrados = s->buscarRepuestos(termino, cantidad);
+    Repuesto** encontrados = buscarRepuestos(s, termino, &cantidad);
     mostrarListaRepuestos(encontrados, cantidad);
 
     delete[] encontrados;
@@ -102,17 +91,18 @@ void menuBuscarRepuesto(SistemaTaller* s) {
 
 // Pide el ID y la cantidad que llego, y llama a registrarEntradaMercancia
 void menuEntradaMercancia(SistemaTaller* s) {
-    string id;
-    int cantidad;
+    int id, cantidad;
     cout << "\n--- ENTRADA DE MERCANCIA ---" << endl;
-    cout << "ID del repuesto: ";
-    cin >> id;
-    cout << "Cantidad que llego: ";
-    cin >> cantidad;
+    if (!leerEntero("ID del repuesto: ", &id)) return;
+    if (!leerEntero("Cantidad que llego: ", &cantidad)) return;
 
-    Resultado res = s->registrarEntradaMercancia(id, cantidad);
-    if (res == EXITO) {
+    Resultado res = registrarEntradaMercancia(s, id, cantidad);
+    if (res == OK) {
         cout << "Entrada de mercancia registrada con exito." << endl;
+    } else if (res == ERROR_NO_EXISTE) {
+        cout << "Error: No existe un repuesto con ese ID." << endl;
+    } else if (res == ERROR_DATO_INVALIDO) {
+        cout << "Error: La cantidad debe ser mayor a 0." << endl;
     } else {
         cout << "Error al registrar la entrada de mercancia." << endl;
     }
@@ -120,17 +110,19 @@ void menuEntradaMercancia(SistemaTaller* s) {
 
 // Pide el ID y el precio nuevo, y llama a cambiarPrecioRepuesto
 void menuCambiarPrecio(SistemaTaller* s) {
-    string id;
-    double nuevoPrecio;
+    int id;
+    float nuevoPrecio;
     cout << "\n--- CAMBIAR PRECIO ---" << endl;
-    cout << "ID del repuesto: ";
-    cin >> id;
-    cout << "Nuevo precio: ";
-    cin >> nuevoPrecio;
+    if (!leerEntero("ID del repuesto: ", &id)) return;
+    if (!leerFlotante("Nuevo precio: ", &nuevoPrecio)) return;
 
-    Resultado res = s->cambiarPrecioRepuesto(id, nuevoPrecio);
-    if (res == EXITO) {
+    Resultado res = cambiarPrecioRepuesto(s, id, nuevoPrecio);
+    if (res == OK) {
         cout << "Precio actualizado correctamente." << endl;
+    } else if (res == ERROR_NO_EXISTE) {
+        cout << "Error: No existe un repuesto con ese ID." << endl;
+    } else if (res == ERROR_DATO_INVALIDO) {
+        cout << "Error: El precio debe ser mayor a 0." << endl;
     } else {
         cout << "Error al cambiar el precio." << endl;
     }
@@ -139,21 +131,18 @@ void menuCambiarPrecio(SistemaTaller* s) {
 // Pide el ID, pide confirmacion y llama a eliminarRepuesto
 // ERROR_EN_USO -> el repuesto aparece en alguna orden
 void menuEliminarRepuesto(SistemaTaller* s) {
-    string id;
+    int id;
     cout << "\n--- ELIMINAR REPUESTO ---" << endl;
-    cout << "ID del repuesto: ";
-    cin >> id;
+    if (!leerEntero("ID del repuesto: ", &id)) return;
 
-    char confirma;
-    cout << "Esta seguro que desea eliminar el repuesto? (s/n): ";
-    cin >> confirma;
-
-    if (confirma == 's' || confirma == 'S') {
-        Resultado res = s->eliminarRepuesto(id);
-        if (res == EXITO) {
+    if (confirmar("Esta seguro que desea eliminar el repuesto? (s/n): ")) {
+        Resultado res = eliminarRepuesto(s, id);
+        if (res == OK) {
             cout << "Repuesto eliminado correctamente." << endl;
+        } else if (res == ERROR_NO_EXISTE) {
+            cout << "Error: No existe un repuesto con ese ID." << endl;
         } else if (res == ERROR_EN_USO) {
-            cout << "Error: El repuesto aparece en alguna orden activa." << endl;
+            cout << "Error: El repuesto aparece en alguna orden." << endl;
         } else {
             cout << "Error al eliminar el repuesto." << endl;
         }
@@ -165,7 +154,7 @@ void menuEliminarRepuesto(SistemaTaller* s) {
 // Llama a listarRepuestos, muestra la lista y hace delete[] del arreglo
 void menuListarRepuestos(SistemaTaller* s) {
     int cantidad = 0;
-    Repuesto** lista = s->listarRepuestos(cantidad);
+    Repuesto** lista = listarRepuestos(s, &cantidad);
     mostrarListaRepuestos(lista, cantidad);
     delete[] lista;
 }
@@ -173,13 +162,14 @@ void menuListarRepuestos(SistemaTaller* s) {
 // Muestra los datos de un repuesto
 void mostrarRepuesto(Repuesto* repuesto) {
     if (repuesto == nullptr) return;
-    cout << "Codigo: " << repuesto->getCodigo()
-         << " | Nombre: " << repuesto->getNombre()
-         << " | Marca: " << repuesto->getMarca()
-         << " | Precio: " << repuesto->getPrecio()
-         << " | Stock: " << repuesto->getStock();
-    
-    if (repuesto->tieneBajoStock()) {
+    cout << "ID: " << repuesto->id
+         << " | Codigo: " << repuesto->codigo
+         << " | Nombre: " << repuesto->nombre
+         << " | Marca: " << repuesto->marca
+         << " | Precio: " << repuesto->precio
+         << " | Stock: " << repuesto->stock;
+
+    if (tieneBajoStock(repuesto)) {
         cout << " [BAJO STOCK]";
     }
     cout << endl;
