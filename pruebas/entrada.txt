@@ -1,0 +1,41 @@
+1
+1
+AB123CD
+Toyota
+Corolla
+2015
+45000
+Maria Gonzalez
+V-12345678
+0414-1112233
+s
+1
+XY987ZW
+Chevrolet
+Aveo
+2009
+128300
+Maria Gonzalez
+V-12345678
+0414-1112233
+s
+1
+JK456LM
+Ford
+Fiesta
+2018
+30000
+Carlos Ramirez
+V-20111222
+0424-5556677
+s
+2
+2
+gonz
+2
+1
+XY987ZW
+5
+0
+0
+s
