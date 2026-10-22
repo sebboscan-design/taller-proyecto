@@ -37,5 +37,44 @@ gonz
 XY987ZW
 5
 0
+3
+1
+FRN-001
+Pastillas delanteras
+Bosch
+25
+20
+5
+s
+1
+FRN-014
+Liquido de frenos DOT4
+Valvoline
+12.5
+10
+3
+s
+1
+FIL-100
+Filtro de aceite
+Mann
+8
+3
+3
+s
+1
+BUJ-200
+Bujia iridium
+NGK
+15
+12
+4
+s
+6
+3
+3
+10
+6
+0
 0
 s
