@@ -1,0 +1,1289 @@
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): Vehiculo registrado exitosamente con ID 1.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): Vehiculo registrado exitosamente con ID 2.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): Vehiculo registrado exitosamente con ID 3.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- BUSCAR VEHICULO ---
+1. Buscar por placa exacta
+2. Buscar por propietario (parcial)
+Seleccione opcion (1-2): Ingrese nombre o parte del propietario: ID   PLACA     MARCA          MODELO         ANIO    KM        PROPIETARIO         
+-----------------------------------------------------------------------------------
+1    AB123CD   Toyota         Corolla        2015    45000     Maria Gonzalez      
+2    XY987ZW   Chevrolet      Aveo           2009    128300    Maria Gonzalez      
+Total de vehiculos: 2
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- BUSCAR VEHICULO ---
+1. Buscar por placa exacta
+2. Buscar por propietario (parcial)
+Seleccione opcion (1-2): Ingrese placa: ----------------------------------------
+ID: 2
+Placa: XY987ZW
+Marca: Chevrolet
+Modelo: Aveo
+Anio: 2009
+Kilometraje: 128300
+Propietario: Maria Gonzalez
+Cedula: V-12345678
+Telefono: 0414-1112233
+Registrado: 2026-10-22
+----------------------------------------
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- LISTA DE VEHICULOS ---
+ID   PLACA     MARCA          MODELO         ANIO    KM        PROPIETARIO         
+-----------------------------------------------------------------------------------
+1    AB123CD   Toyota         Corolla        2015    45000     Maria Gonzalez      
+2    XY987ZW   Chevrolet      Aveo           2009    128300    Maria Gonzalez      
+3    JK456LM   Ford           Fiesta         2018    30000     Carlos Ramirez      
+Total de vehiculos: 3
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- REGISTRAR REPUESTO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Codigo: Nombre: Marca: Precio: Stock: Stock minimo: Confirma el registro? (s/n): Repuesto registrado exitosamente.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- REGISTRAR REPUESTO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Codigo: Nombre: Marca: Precio: Stock: Stock minimo: Confirma el registro? (s/n): Repuesto registrado exitosamente.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- REGISTRAR REPUESTO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Codigo: Nombre: Marca: Precio: Stock: Stock minimo: Confirma el registro? (s/n): Repuesto registrado exitosamente.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- REGISTRAR REPUESTO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Codigo: Nombre: Marca: Precio: Stock: Stock minimo: Confirma el registro? (s/n): Repuesto registrado exitosamente.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- LISTA DE REPUESTOS (4) ---
+1. ID: 1 | Codigo: FRN-001 | Nombre: Pastillas delanteras | Marca: Bosch | Precio: 25 | Stock: 20
+2. ID: 2 | Codigo: FRN-014 | Nombre: Liquido de frenos DOT4 | Marca: Valvoline | Precio: 12.5 | Stock: 10
+3. ID: 3 | Codigo: FIL-100 | Nombre: Filtro de aceite | Marca: Mann | Precio: 8 | Stock: 3 [BAJO STOCK]
+4. ID: 4 | Codigo: BUJ-200 | Nombre: Bujia iridium | Marca: NGK | Precio: 15 | Stock: 12
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- ENTRADA DE MERCANCIA ---
+ID del repuesto: Cantidad que llego: Entrada de mercancia registrada con exito.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- LISTA DE REPUESTOS (4) ---
+1. ID: 1 | Codigo: FRN-001 | Nombre: Pastillas delanteras | Marca: Bosch | Precio: 25 | Stock: 20
+2. ID: 2 | Codigo: FRN-014 | Nombre: Liquido de frenos DOT4 | Marca: Valvoline | Precio: 12.5 | Stock: 10
+3. ID: 3 | Codigo: FIL-100 | Nombre: Filtro de aceite | Marca: Mann | Precio: 8 | Stock: 13
+4. ID: 4 | Codigo: BUJ-200 | Nombre: Bujia iridium | Marca: NGK | Precio: 15 | Stock: 12
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): Volviendo...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): 
+--- REGISTRAR MECANICO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Ingrese Nombre: Ingrese Cedula: Ingrese Especialidad (MOTOR, FRENOS, ELECTRICIDAD, SUSPENSION, GENERAL): Ingrese Fecha de Ingreso (AAAA-MM-DD): Confirmar registro del mecanico? (S/N): Mecanico registrado con exito.
+
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): Volviendo al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Orden #1 abierta exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #1.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #1.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #1.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #1
++----------------------------------------------------------------+
+  Estado   : ABIERTA           Apertura: 2026-10-22
+  Vehiculo : AB123CD - Toyota Corolla 2015 (45000 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : Ruido al frenar
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            3     25.00    75.00
+  FRN-014   Liquido de frenos DOT4          1     12.50    12.50
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    87.50
+                                           Mano de obra     0.00
+                                                  TOTAL    87.50
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- QUITANDO REPUESTO DE ORDEN ---
+Numero de orden: ID del repuesto a quitar: Repuesto quitado correctamente de la orden #1.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- LISTA DE REPUESTOS (4) ---
+1. ID: 1 | Codigo: FRN-001 | Nombre: Pastillas delanteras | Marca: Bosch | Precio: 25.00 | Stock: 17
+2. ID: 2 | Codigo: FRN-014 | Nombre: Liquido de frenos DOT4 | Marca: Valvoline | Precio: 12.50 | Stock: 10
+3. ID: 3 | Codigo: FIL-100 | Nombre: Filtro de aceite | Marca: Mann | Precio: 8.00 | Stock: 13
+4. ID: 4 | Codigo: BUJ-200 | Nombre: Bujia iridium | Marca: NGK | Precio: 15.00 | Stock: 12
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): Volviendo...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- CERRAR ORDEN DE SERVICIO ---
+Numero de orden a cerrar: Costo de mano de obra: Desea confirmar el cierre de la orden #1? (S/N): Orden #1 cerrada exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #1
++----------------------------------------------------------------+
+  Estado   : CERRADA           Apertura: 2026-10-22
+                               Cierre  : 2026-10-22
+  Vehiculo : AB123CD - Toyota Corolla 2015 (45000 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : Ruido al frenar
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            3     25.00    75.00
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    75.00
+                                           Mano de obra    40.00
+                                                  TOTAL   115.00
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- CAMBIAR PRECIO ---
+ID del repuesto: Nuevo precio: Precio actualizado correctamente.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): Volviendo...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #1
++----------------------------------------------------------------+
+  Estado   : CERRADA           Apertura: 2026-10-22
+                               Cierre  : 2026-10-22
+  Vehiculo : AB123CD - Toyota Corolla 2015 (45000 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : Ruido al frenar
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            3     25.00    75.00
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    75.00
+                                           Mano de obra    40.00
+                                                  TOTAL   115.00
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Orden #2 abierta exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #2.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #2
++----------------------------------------------------------------+
+  Estado   : ABIERTA           Apertura: 2026-10-22
+  Vehiculo : XY987ZW - Chevrolet Aveo 2009 (128300 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : frenos retardados
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            3      5.00    15.00
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    15.00
+                                           Mano de obra     0.00
+                                                  TOTAL    15.00
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ANULAR ORDEN DE SERVICIO ---
+Numero de orden a anular: Esta seguro de que desea anular la orden #2? (S/N): Orden #2 anulada correctamente. Los repuestos volvieron al inventario.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #2
++----------------------------------------------------------------+
+  Estado   : ANULADA           Apertura: 2026-10-22
+  Vehiculo : XY987ZW - Chevrolet Aveo 2009 (128300 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : frenos retardados
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            3      5.00    15.00
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    15.00
+                                           Mano de obra     0.00
+                                                  TOTAL    15.00
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- LISTA DE REPUESTOS (4) ---
+1. ID: 1 | Codigo: FRN-001 | Nombre: Pastillas delanteras | Marca: Bosch | Precio: 5.00 | Stock: 17
+2. ID: 2 | Codigo: FRN-014 | Nombre: Liquido de frenos DOT4 | Marca: Valvoline | Precio: 12.50 | Stock: 10
+3. ID: 3 | Codigo: FIL-100 | Nombre: Filtro de aceite | Marca: Mann | Precio: 8.00 | Stock: 13
+4. ID: 4 | Codigo: BUJ-200 | Nombre: Bujia iridium | Marca: NGK | Precio: 15.00 | Stock: 12
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): Volviendo...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): ERROR: La placa ab123cd ya esta registrada o algun dato no es valido.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Orden #3 abierta exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Error: El vehiculo XY987ZW ya tiene una orden abierta.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): 
+--- BUSCAR MECANICO ---
+Ingrese el ID del mecanico: 
+ID: 1
+Nombre: Jose Perez
+Cedula: V-9876543
+Especialidad: FRENOS
+Fecha de Ingreso: 2020-01-15
+Ordenes Abiertas: 1
+-----------------------------------
+
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): Volviendo al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- LISTAR ORDENES ---
+1. Todas las ordenes
+2. Por estado
+3. Historial por vehiculo (Placa)
+Seleccione una opcion (1-3): 
+NUMERO  PLACA       ESTADO      APERTURA         TOTAL
+------------------------------------------------------
+1       AB123CD     CERRADA     2026-10-22      115.00
+2       XY987ZW     ANULADA     2026-10-22       15.00
+3       XY987ZW     ABIERTA     2026-10-22        0.00
+Total de ordenes: 3
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Orden #4 abierta exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Orden #5 abierta exitosamente.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): Vehiculo registrado exitosamente con ID 4.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Error: El mecanico seleccionado ya tiene 3 ordenes abiertas.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: Propietario: Cedula del propietario: Telefono del propietario: Desea guardar este vehiculo? (s/n): Vehiculo registrado exitosamente con ID 5.
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): 
+--- REGISTRAR MECANICO ---
+(Escriba CANCELAR en cualquier momento para salir)
+Ingrese Nombre: Ingrese Cedula: Ingrese Especialidad (MOTOR, FRENOS, ELECTRICIDAD, SUSPENSION, GENERAL): Ingrese Fecha de Ingreso (AAAA-MM-DD): Confirmar registro del mecanico? (S/N): Mecanico registrado con exito.
+
+--- MENU MECANICOS ---
+1. Registrar Mecanico
+2. Buscar Mecanico por ID
+3. Listar Mecanicos
+0. Volver
+Seleccione una opcion (0-3): Volviendo al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- ABRIR ORDEN DE SERVICIO (Escriba CANCELAR para abortar) ---
+Placa del vehiculo: ID del mecanico: Kilometraje actual: Descripcion de la falla: Confirma la apertura de la orden? (S/N): Error: El kilometraje es menor al ultimo registrado (60000 km).
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Error: Stock insuficiente para Bujia iridium (disponible: 12).
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Error: La orden #1 esta CERRADA o ANULADA y no puede modificarse.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- ELIMINAR VEHICULO ---
+Ingrese el ID del vehiculo a eliminar: No se puede eliminar: este vehiculo tiene 2 orden(es) asociada(s).
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): 
+--- ELIMINAR REPUESTO ---
+ID del repuesto: Esta seguro que desea eliminar el repuesto? (s/n): Error: El repuesto aparece en alguna orden.
+
+--- MENU REPUESTOS ---
+1. Registrar repuesto
+2. Buscar repuesto
+3. Entrada de mercancia
+4. Cambiar precio
+5. Eliminar repuesto
+6. Listar repuestos
+0. Volver
+Seleccione una opcion (0-6): Volviendo...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- LISTA DE VEHICULOS ---
+ID   PLACA     MARCA          MODELO         ANIO    KM        PROPIETARIO         
+-----------------------------------------------------------------------------------
+1    AB123CD   Toyota         Corolla        2015    45000     Maria Gonzalez      
+2    XY987ZW   Chevrolet      Aveo           2009    128300    Maria Gonzalez      
+3    JK456LM   Ford           Fiesta         2018    30000     Carlos Ramirez      
+4    LP456HN   ford           mustang        2018    75000     felipe mendoza      
+5    GA123TO   honda          cr-v           2020    60000     miguel urdaneta     
+Total de vehiculos: 5
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #4.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #4.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- AGREGAR REPUESTO A ORDEN ---
+Numero de orden: ID del repuesto: Cantidad: Repuesto agregado correctamente a la orden #4.
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): 
+--- VER DETALLE DE ORDEN ---
+Ingrese el ID de la orden: 
++----------------------------------------------------------------+
+  ORDEN DE SERVICIO #4
++----------------------------------------------------------------+
+  Estado   : ABIERTA           Apertura: 2026-10-22
+  Vehiculo : AB123CD - Toyota Corolla 2015 (45000 km)
+  Dueno    : Maria Gonzalez
+  Mecanico : Jose Perez (FRENOS)
+  Falla    : fuga e el circuito hidraulico 
++----------+---------------------------+------+---------+--------+
+  Codigo    Repuesto                     Cant    P.Unit    Total
++----------+---------------------------+------+---------+--------+
+  FRN-001   Pastillas delanteras            1      5.00     5.00
+  FIL-100   Filtro de aceite                1      8.00     8.00
+  BUJ-200   Bujia iridium                   1     15.00    15.00
++----------+---------------------------+------+---------+--------+
+                                              Repuestos    28.00
+                                           Mano de obra     0.00
+                                                  TOTAL    28.00
++----------------------------------------------------------------+
+
+--- MENU ORDENES DE SERVICIO ---
+1. Abrir orden de servicio
+2. Agregar repuesto a orden
+3. Quitar repuesto de orden
+4. Cerrar orden de servicio
+5. Anular orden de servicio
+6. Ver detalle de orden
+7. Listar ordenes
+0. Volver al menu principal
+Seleccione una opcion (0-7): Regresando...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- REGISTRAR VEHICULO (Escriba CANCELAR para abortar) ---
+Placa: Marca: Modelo: Anio: Kilometraje: 
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): 
+--- BUSCAR VEHICULO ---
+1. Buscar por placa exacta
+2. Buscar por propietario (parcial)
+Seleccione opcion (1-2): Ingrese placa: No se encontro ningun vehiculo con la placa: HY589LK
+
+--- MENU VEHICULOS ---
+1. Registrar vehiculo
+2. Buscar vehiculo
+3. Actualizar vehiculo
+4. Eliminar vehiculo
+5. Listar vehiculos
+0. Volver
+Seleccione una opcion (0-5): Regresando al menu principal...
+
++-------------------------------------------+
+  SISTEMA DE GESTION DE TALLER
+  Taller: Autoservicio El Lago
++-------------------------------------------+
+1. Gestion de Vehiculos
+2. Gestion de Mecanicos
+3. Inventario de Repuestos
+4. Ordenes de Servicio
+0. Salir
+Seleccione una opcion (0-4): Los datos se perderan al salir. Desea salir? (S/N): Hasta luego.
