@@ -92,11 +92,11 @@ Usamos IDs en vez de punteros para relacionar las cosas porque los arreglos se m
 
 ## Por qué separamos en capas
 
-La idea es que la lógica no sepa nada de cómo se ve el programa. Las funciones de `logica/` reciben datos, hacen su trabajo y devuelven un resultado, y ya. Las de `presentacion/` son las que preguntan cosas, llaman a la lógica y deciden qué mensaje mostrar.
+La idea es que la lógica no sepa nada de cómo se ve el programa. Las funciones de `logica/` reciben datos, hacen lo suyo y devuelven algo, y ya. Las de `presentacion/` son las que preguntan, llaman a la lógica y deciden qué mensaje mostrar.
 
-Así si mañana el programa se hiciera con ventanas o en una página web, la lógica se podría usar igualito y solo habría que cambiar la presentación. También es más fácil de probar y de repartirse el trabajo, que fue lo que hicimos: uno hizo lógica y la otra presentación.
+Así si algún día el programa se hiciera con ventanas o en una página web, la lógica se podría usar igualita y solo cambiaría la presentación. Además nos sirvió para repartirnos el trabajo.
 
-El problema es que si la lógica no puede usar cout, ¿cómo le avisa al menú que algo salió mal y por qué? Para eso hicimos el enum `Resultado` (en `logica/resultados.h`). Cada función que puede fallar por varias razones devuelve uno de estos valores y el menú, según cuál sea, muestra el mensaje que toca:
+Pero si la lógica no puede usar cout, ¿cómo le avisa al menú que algo falló y por qué? Para eso hicimos el enum `Resultado` (está en `logica/resultados.h`). Las funciones que pueden fallar por varias razones devuelven uno de estos valores y el menú, según cuál sea, muestra el mensaje que toca:
 
 ```
 OK
@@ -112,16 +112,16 @@ ERROR_EN_USO                       el repuesto aparece en alguna orden
 ERROR_ORDEN_VACIA                  cerrar sin repuestos y con mano de obra 0
 ```
 
-## Firmas que diseñamos
+## Las firmas que diseñamos
 
-Para vehículos usamos las firmas que venían en el enunciado. Para mecánicos, repuestos y órdenes las hicimos nosotros siguiendo el mismo estilo, pero cambiamos los bool por `Resultado`. Con un bool el menú solo sabe que falló, no por qué (por ejemplo `eliminarVehiculo` devuelve bool y en el menú tuvimos que buscar el vehículo antes para saber si el error era que no existía o que tenía órdenes).
+Las de vehículos son las que venían en el enunciado. Las de mecánicos, repuestos y órdenes las hicimos nosotros copiando ese estilo, pero en vez de bool usamos `Resultado`. Con un bool el menú solo sabe que algo falló pero no por qué. Nos pasó con `eliminarVehiculo`, que devuelve bool: en el menú tuvimos que buscar el carro antes para saber si el error era que no existía o que tenía órdenes.
 
-En general seguimos estas reglas:
+Más o menos la regla que seguimos fue:
 
-- **Operaciones que cambian algo** (registrar, cerrar, anular...) devuelven `Resultado`, para saber exactamente qué falló.
-- **Búsquedas de uno solo** devuelven un puntero al elemento dentro del arreglo, o `nullptr` si no existe. Así se puede leer o modificar directo sin copiar nada.
-- **Listados y búsquedas de varios** devuelven `Entidad**` (un arreglo nuevo de punteros) y la cantidad por un `int*`, porque el return ya se usa para el arreglo. El que llama tiene que hacer `delete[]` de ese arreglo (solo del arreglo, no de las entidades).
-- **Cálculos y preguntas de sí/no** devuelven `float`, `int` o `bool` directamente porque no pueden fallar.
+- Lo que cambia algo (registrar, cerrar, anular...) devuelve `Resultado`.
+- Buscar uno solo devuelve un puntero a ese elemento dentro del arreglo, o `nullptr` si no está.
+- Listar o buscar varios devuelve un arreglo nuevo de punteros (`Entidad**`) y la cantidad va por un `int*`, porque el return ya está ocupado con el arreglo. El que la llama tiene que hacer `delete[]` de ese arreglo (solo del arreglo, no de las cosas a las que apunta).
+- Lo que solo calcula o pregunta algo de sí o no devuelve un `float`, `int` o `bool` normal porque no puede fallar.
 
 ### Mecánicos
 
@@ -133,7 +133,7 @@ Mecanico** listarMecanicos(SistemaTaller* s, int* cantidad);
 int contarOrdenesAbiertasMecanico(SistemaTaller* s, int idMecanico);
 ```
 
-`registrarMecanico` puede fallar por cédula repetida o por algún dato malo (especialidad que no existe, fecha mal escrita), por eso devuelve `Resultado`. `buscarMecanicoPorCedula` la usamos sobre todo por dentro, para no repetir cédulas. `contarOrdenesAbiertasMecanico` devuelve un int porque solo cuenta, y la usa `abrirOrden` para el límite de 3.
+`registrarMecanico` puede fallar porque la cédula ya existe o porque algún dato está malo (una especialidad que no existe, la fecha mal escrita), por eso `Resultado`. La de buscar por cédula la usamos más que todo por dentro para no repetir cédulas. `contarOrdenesAbiertasMecanico` solo cuenta, la usa `abrirOrden` para lo del máximo de 3.
 
 ### Repuestos
 
@@ -150,7 +150,7 @@ bool tieneBajoStock(Repuesto* repuesto);
 bool repuestoUsadoEnOrdenes(SistemaTaller* s, int idRepuesto);
 ```
 
-`buscarRepuestos` busca por parte del código o del nombre, por eso puede devolver varios. `eliminarRepuesto` devuelve `ERROR_EN_USO` si el repuesto sale en alguna orden, porque si se borrara esas órdenes quedarían con un ID que ya no existe. `tieneBajoStock` recibe directo el repuesto (no el sistema) porque solo compara su stock con su mínimo.
+`buscarRepuestos` busca por un pedazo del código o del nombre, por eso puede devolver varios. `eliminarRepuesto` da `ERROR_EN_USO` si el repuesto sale en alguna orden, porque si se borrara esas órdenes se quedarían con un ID que ya no existe. `tieneBajoStock` recibe el repuesto directo y no el sistema porque solo compara su stock con su mínimo.
 
 ### Órdenes
 
@@ -172,8 +172,47 @@ OrdenServicio** listarOrdenesPorEstado(SistemaTaller* s, const char* estado, int
 OrdenServicio** listarOrdenesPorVehiculo(SistemaTaller* s, int idVehiculo, int* cantidad);
 ```
 
-`abrirOrden` es la que más puede fallar (vehículo o mecánico que no existe, carro con otra orden abierta, mecánico sin cupo, km menor), por eso devuelve `Resultado`. Como también necesitábamos saber el número de la orden nueva, ese va por el puntero `idNuevaOrden`.
+`abrirOrden` es la que más cosas tiene que revisar (que existan el carro y el mecánico, que el carro no tenga otra orden abierta, que el mecánico tenga cupo, que el km no sea menor), por eso `Resultado`. Como además necesitábamos saber qué número le tocó a la orden nueva, ese va por el puntero `idNuevaOrden`.
 
-Los totales no se guardan en la orden, se calculan cada vez con `calcularTotalOrden` sumando cantidad × precioUnitario de cada línea más la mano de obra. Así nunca se desincronizan.
+El total no se guarda en la orden, se calcula cada vez con `calcularTotalOrden` (cantidad × precioUnitario de cada línea, más la mano de obra). Así nunca queda desactualizado.
 
-`buscarDetalleEnOrden` la usa `agregarRepuestoAOrden` para ver si el repuesto ya estaba en la orden y sumarle a esa línea en vez de crear otra. `contarOrdenesDeVehiculo` la usa el menú de vehículos para decir cuántas órdenes tiene un carro cuando no se puede eliminar.
+`buscarDetalleEnOrden` la usa `agregarRepuestoAOrden` para ver si ese repuesto ya estaba en la orden y sumarle ahí en vez de crear otra línea. `contarOrdenesDeVehiculo` la usa el menú de vehículos para decir cuántas órdenes tiene un carro cuando no se puede eliminar.
+
+## Pruebas
+
+En `pruebas/entrada.txt` está todo lo que uno escribiría a mano para hacer los 8 casos de uso del enunciado, uno detrás del otro. Hay que correrlo completo porque cada caso usa lo que dejó el anterior (el programa siempre arranca vacío). Lo que mostró el programa quedó en `pruebas/salida.txt`.
+
+| Caso | Líneas | Qué hace |
+|---|---|---|
+| 1 | 1-39 | Registra los 2 carros de María González (AB123CD y XY987ZW) y uno de Carlos Ramírez. Busca "gonz" y salen los 2 de María, busca la placa XY987ZW y lista todo |
+| 2 | 40-78 | Registra 4 repuestos, el filtro de aceite queda con stock igual al mínimo y sale BAJO STOCK. Le entran 10 y ya no sale marcado |
+| 3 | 79-122 | Registra a José Pérez y abre la orden #1 para AB123CD con 45000 km. Le mete 2 pastillas y 1 líquido, después 1 pastilla más (queda una sola línea con 3). Quita el líquido y su stock vuelve a 10. Se cierra con 40 de mano de obra: total 115 |
+| 4 | 123-142 | Cambia el precio de las pastillas a 5. La orden #1 sigue en 115. Abre la orden #2 para XY987ZW y las pastillas ya salen al precio nuevo |
+| 5 | 143-151 | Anula la orden #2, queda ANULADA y el stock de pastillas vuelve a 17 que era lo que había |
+| 6 | 152-262 | Las 8 validaciones: placa repetida, segunda orden abierta para el mismo carro, cuarta orden abierta para José, km menor, más bujías de las que hay, meterle algo a la orden #1 que ya está cerrada, eliminar un carro con órdenes y eliminar un repuesto usado. Todas salen rechazadas |
+| 7 | 263-281 | Lista los 5 carros con sus datos bien. Le mete pastillas, filtro y bujía a la orden #4 (3 repuestos distintos) y el detalle sale con las 3 líneas y total 28 |
+| 8 | 282-291 | Empieza a registrar el carro HY589LK y pone CANCELAR en el kilometraje. Después lo busca por placa y no aparece |
+
+Sobre el caso 7: el quinto carro (GA123TO) se registra en el caso 6, en las líneas 218-229, y ahí es donde el arreglo de vehículos pasa de 4 a 8. En el caso 7 solo se listan los 5 para ver que después de crecer siguen todos bien.
+
+## Preguntas de análisis
+
+**1. agregarVehiculo retorna un puntero a un elemento de s->vehiculos. Si guardan ese puntero en una variable, registran varios vehículos más y luego lo usan, ¿qué puede ocurrir y por qué?**
+
+El puntero apunta a una posición dentro de `s->vehiculos`. Si después registramos más carros y el arreglo se llena, `asegurarCapacidadVehiculos` crea uno nuevo del doble de tamaño, copia todos los carros ahí y borra el viejo con `delete[]`. El problema es que nuestro puntero sigue apuntando al arreglo viejo, que ya no existe. Queda como un puntero colgante, y si lo usamos podemos leer basura o el programa se puede caer.
+
+Ojo que no es una fuga de memoria, porque la memoria vieja sí se liberó. El problema es al revés: estamos usando memoria que ya se liberó. Tampoco sirve ponerle `nullptr`, porque la función que agranda el arreglo no sabe que nuestra variable existe. Lo seguro es guardar el ID del carro y volver a buscarlo con `buscarVehiculoPorID` cuando lo necesitemos, porque el ID no cambia aunque el carro se mueva de lugar.
+
+**2. ¿Por qué DetalleOrden guarda precioUnitario en lugar de consultar el precio del repuesto cada vez que se calcula el total?**
+
+Porque el precio de un repuesto puede cambiar y eso no debería dañar las órdenes que ya se hicieron. El total de una orden no está guardado en ningún lado, se calcula cada vez que se pide. Si se calculara con el precio actual del repuesto, cada vez que cambiáramos un precio cambiarían también los totales de órdenes viejas, aunque ya estén cerradas y el cliente ya haya pagado.
+
+Es como una factura del súper: si mañana sube la harina, la factura de ayer sigue diciendo lo mismo. Por eso cuando se agrega un repuesto a la orden se copia el precio que tiene en ese momento a `precioUnitario`, y el total siempre se saca con esa copia. Eso es lo que se prueba en el caso 4.
+
+**3. Cuando se redimensiona el arreglo de órdenes, ¿qué ocurre con el arreglo de detalles de cada orden? ¿Se copia, se comparte o se pierde?**
+
+La orden no tiene los detalles adentro, solo tiene un puntero (`detalles`) con la dirección donde están. Cuando `asegurarCapacidadOrdenes` crea el arreglo nuevo y hace `nuevoArreglo[i] = s->ordenes[i]`, se copia la orden completa, pero del puntero lo que se copia es solo la dirección, no las líneas.
+
+Entonces los detalles no se copian (nunca se hace un `new` de detalles nuevos) y tampoco se pierden (el `delete[] s->ordenes` borra solo el arreglo de órdenes, nunca los detalles). Lo que pasa es que se comparten por un momento: la orden vieja y la nueva apuntan al mismo arreglo de detalles. Después se borra el arreglo viejo y la orden nueva se queda como la única dueña.
+
+Por eso en esa función NO se puede hacer `delete[]` de los detalles. Si se hiciera, la orden nueva quedaría apuntando a memoria liberada. Los detalles solo se borran en `liberarSistema` al salir, y ahí primero se borran los de cada orden y después el arreglo de órdenes, porque si fuera al revés se perderían las direcciones y quedaría memoria sin liberar.
